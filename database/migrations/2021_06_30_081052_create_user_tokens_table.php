@@ -21,7 +21,6 @@ class CreateUserTokensTable extends Migration
             $table->boolean('disabled')->default(false);
             $table->timestamps();
             $table->index(["token", "token_name"]);
-
         });
     }
 

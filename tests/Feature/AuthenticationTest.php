@@ -42,4 +42,34 @@ class AuthenticationTest extends TestCase
 
         $this->assertGuest();
     }
+
+    public function test_system_users_can_access_system_routes ()
+    {
+        $user = User::factory()->create();
+        $user->is_system_user = true;
+        $user->save();
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $this->assertAuthenticated();
+        $response = $this->get('/sources');
+        $response->assertOk();
+    }
+    public function test_normal_users_cannot_access_system_routes ()
+    {
+        $user = User::factory()->create();
+        $user->is_system_user = false;
+        $user->save();
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $this->assertAuthenticated();
+        $response = $this->get('/sources');
+
+        $response->assertStatus(403);
+    }
 }
