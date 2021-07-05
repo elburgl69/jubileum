@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Bestelling
+ * Class Source
  *
  * @property integer $id                Unieque ID
  * @property string  $name              Name of the source

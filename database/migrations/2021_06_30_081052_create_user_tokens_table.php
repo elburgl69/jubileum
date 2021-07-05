@@ -15,12 +15,13 @@ class CreateUserTokensTable extends Migration
     {
         Schema::create('user_tokens', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('event_id')->unsigned();
             $table->string('token_name', 50);
             $table->string('token');
             $table->boolean('disabled')->default(false);
             $table->timestamps();
-            $table->index(["token", "token_name"]);
+            $table->index(["token"]);
         });
     }
 
