@@ -17,6 +17,6 @@ class ListSourceTest extends TestCase
     {
         $response = $this->get('/source/create');
 
-        $response->assertStatus(404);
+        $response->assertOk();
     }
 }

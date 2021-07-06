@@ -1,29 +1,49 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
-    },
-    "devDependencies": {
-        "@inertiajs/inertia": "^0.9.0",
-        "@inertiajs/inertia-vue3": "^0.4.0",
-        "@inertiajs/progress": "^0.2.4",
-        "@tailwindcss/forms": "^0.2.1",
-        "@vue/compiler-sfc": "^3.0.5",
-        "alpinejs": "^2.7.3",
-        "autoprefixer": "^10.2.4",
-        "axios": "^0.21",
-        "laravel-mix": "^6.0.6",
-        "lodash": "^4.17.19",
-        "postcss": "^8.2.13",
-        "postcss-import": "^14.0.1",
-        "tailwindcss": "^2.1.2",
-        "vue": "^3.0.5",
-        "vue-loader": "^16.1.2"
-    }
+  "private": true,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production"
+  },
+  "devDependencies": {
+    "@inertiajs/inertia": "^0.9.0",
+    "@inertiajs/inertia-vue3": "^0.4.0",
+    "@inertiajs/progress": "^0.2.4",
+    "@tailwindcss/forms": "^0.2.1",
+    "@vue/compiler-sfc": "^3.0.5",
+    "alpinejs": "^2.7.3",
+    "autoprefixer": "^10.2.4",
+    "axios": "^0.21",
+    "laravel-mix": "^6.0.25",
+    "lodash": "^4.17.19",
+    "postcss": "^8.2.13",
+    "postcss-import": "^14.0.1",
+    "tailwindcss": "^2.1.2",
+    "vue": "^3.0.5",
+    "vue-loader": "^16.1.2",
+    "webpack": "^5.42.1"
+  },
+  "name": "jubileum",
+  "description": "Jubileum is a email and reservation platform. It allows: - Read person files linked to a source. - Mail persons of a source indiviually. - Supply person with a link to a personal subscribe environment for the event. - Supply persons with a link to a personal subescribed / access grant proof. - Allow for linking sources to events and prioritize access grants to sources. - Allow for deviding sources in batches of x persons (event setting), to communicate seprately.",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elburgl69/jubileum.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elburgl69/jubileum/issues"
+  },
+  "homepage": "https://github.com/elburgl69/jubileum#readme"
 }

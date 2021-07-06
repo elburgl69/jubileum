@@ -8,14 +8,14 @@
                         <div class="flex">
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
-                                <inertia-link :href="route('dashboard')">
+                                <inertia-link :href="route('manage')">
                                     <breeze-application-logo class="block h-9 w-auto" />
                                 </inertia-link>
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <breeze-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
+                                <breeze-nav-link :href="route('manage')" :active="route().current('manage')">
                                     Dashboard
                                 </breeze-nav-link>
                             </div>

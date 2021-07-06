@@ -9,17 +9,18 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Symfony\Component\CssSelector\Parser\Token;
 
 class UserTokenTest extends TestCase
 {
     use RefreshDatabase;
 
     /**
-     * @test
+     * @test #7
      */
     public function usersCanAccessProtectedRoutesWithATokenEmailAndEvent()
     {
-        // $this->withoutExceptionHandling();
+        $this->withoutExceptionHandling();
         $user = User::factory()->create();
 
         $userToken = new UserToken;
@@ -39,7 +40,7 @@ class UserTokenTest extends TestCase
     }
 
     /**
-     * @test
+     * @test #7
      */
     public function usersCanNotAccessProtectedRoutesWithATokenWithWrongEmail()
     {
@@ -62,7 +63,7 @@ class UserTokenTest extends TestCase
     }
 
     /**
-     * @test
+     * @test #7
      */
     public function usersCanNotAccessProtectedRoutesWithATokenWithWrongEvent()
     {
@@ -80,6 +81,30 @@ class UserTokenTest extends TestCase
         $token = $userToken->makeToken();
         $userToken->token = $token;
         $userToken->save();
+        $response = $this->get('/subscribe/' . $token . '/' . $user->email . '/2');
+        $response->assertStatus(401);
+    }
+
+    /**
+     * @test #7
+     */
+    public function usersCanNotAccessProtectedRoutesWithAnInvalidToken()
+    {
+        // $this->withoutExceptionHandling();
+        $user = User::factory()->create();
+
+        $userToken = new UserToken;
+        $userToken->fill(
+            [
+                'user_id' => $user->id,
+                'event_id' => '1',
+                'token_name' => "testname",
+            ]
+        );
+        $token = $userToken->makeToken();
+        $userToken->token = $token;
+        $userToken->save();
+        $token = str_replace("A", "a", $token);
         $response = $this->get('/subscribe/' . $token . '/' . $user->email . '/2');
         $response->assertStatus(401);
     }

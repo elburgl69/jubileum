@@ -47,7 +47,11 @@ class UserToken extends Model
     public static function findByToken($token, $email, $event)
     {
         $instance = null;
-        $decr = Crypt::decryptString($token);
+        try {
+            $decr = Crypt::decryptString($token);
+        } catch (\Throwable $th) {
+            return null;
+        }
         if (stristr($decr, $email)) {
             $instance = UserToken::where('token', md5($token))->first();
             if ($instance) {
